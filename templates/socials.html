@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network | Dimensia</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <style>
+        :root { --bg-deep: #020003; --bg-rich: #1a0525; --primary: #ff4db8; --text: #ffffff; --border: rgba(255, 77, 184, 0.2); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: radial-gradient(circle at top center, var(--bg-rich), var(--bg-deep) 80%); 
+            color: var(--text); font-family: 'Outfit', sans-serif; 
+            min-height: 100vh; overflow-x: hidden;
+        }
+
+        /* --- NAV --- */
+        nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 100; background: rgba(2,0,3,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        .logo img { height: 40px; }
+        .back-btn { text-decoration: none; color: #aaa; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .back-btn:hover { color: var(--primary); }
+
+        /* --- HEADER --- */
+        .container { padding: 150px 5% 100px; text-align: center; }
+        h1 { font-family: 'Clash Display', sans-serif; font-size: 5rem; margin-bottom: 20px; text-transform: uppercase; color: var(--primary); text-shadow: 0 0 40px rgba(255, 77, 184, 0.3); }
+        .subtitle { color: #aaa; font-size: 1.2rem; max-width: 600px; margin: 0 auto 80px; }
+
+        /* --- THE SOCIAL GRID --- */
+        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
+            border-radius: 20px; padding: 40px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; align-items: center; gap: 20px; text-decoration: none;
+            position: relative; overflow: hidden; opacity: 0; transform: translateY(30px);
+        }
+        
+        /* HOVER EFFECT */
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(255, 77, 184, 0.05); box-shadow: 0 10px 40px rgba(255, 77, 184, 0.1); }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 77, 184, 0.1), transparent);
+            transition: 0.5s;
+        }
+        .card:hover::before { left: 100%; }
+
+        .icon-box { font-size: 3rem; color: var(--text); transition: 0.3s; }
+        .card:hover .icon-box { color: var(--primary); transform: scale(1.1); }
+        
+        .info h3 { font-family: 'Clash Display', sans-serif; font-size: 1.5rem; color: white; margin-bottom: 5px; }
+        .info p { color: #888; font-size: 0.9rem; }
+        .arrow { margin-left: auto; font-size: 1.5rem; color: #555; transition: 0.3s; }
+        .card:hover .arrow { color: var(--primary); transform: translateX(5px); }
+
+        @media(max-width: 768px) { h1 { font-size: 15vw; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><img src="/static/logo.png" alt="Dimensia"></div>
+        <a href="/" class="back-btn">Back to Base</a>
+    </nav>
+
+    <div class="container">
+        <h1>The Network</h1>
+        <p class="subtitle">Connect with the Dimensia ecosystem across all frequencies.</p>
+
+        <div class="social-grid">
+            
+            <a href="https://instagram.com/your_handle" target="_blank" class="card">
+                <div class="icon-box"><i class="fab fa-instagram"></i></div>
+                <div class="info">
+                    <h3>Instagram</h3>
+                    <p>Visual Portfolio & Updates</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="https://linkedin.com/in/your_handle" target="_blank" class="card">
+                <div class="icon-box"><i class="fab fa-linkedin"></i></div>
+                <div class="info">
+                    <h3>LinkedIn</h3>
+                    <p>Corporate & Professional</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="https://twitter.com/your_handle" target="_blank" class="card">
+                <div class="icon-box"><i class="fab fa-x-twitter"></i></div>
+                <div class="info">
+                    <h3>X (Twitter)</h3>
+                    <p>Real-time Thoughts</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="https://github.com/your_handle" target="_blank" class="card">
+                <div class="icon-box"><i class="fab fa-github"></i></div>
+                <div class="info">
+                    <h3>GitHub</h3>
+                    <p>Open Source Codebase</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="#" class="card">
+                <div class="icon-box"><i class="fab fa-discord"></i></div>
+                <div class="info">
+                    <h3>Discord</h3>
+                    <p>Community Server</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="mailto:hello@dimensia.com" class="card">
+                <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                <div class="info">
+                    <h3>Email</h3>
+                    <p>Direct Transmission</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+        </div>
+    </div>
+
+    <script>
+        // Intro Animation
+        gsap.from("h1", { y: 50, opacity: 0, duration: 1.2, ease: "power4.out" });
+        gsap.from(".subtitle", { y: 30, opacity: 0, duration: 1.2, delay: 0.2, ease: "power4.out" });
+        
+        // Staggered Grid Reveal
+        gsap.to(".card", {
+            opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: "power3.out", delay: 0.5
+        });
+    </script>
+</body>
+</html>

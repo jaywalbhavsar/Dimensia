@@ -1,0 +1,4 @@
+Flask
+authlib
+requests
+gunicorn  # The server Render uses to run your Python app
