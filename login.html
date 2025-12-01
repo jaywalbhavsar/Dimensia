@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access | Dimensia</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root { --bg: #030005; --primary: #ff4db8; --text: #fff; }
+        
+        /* DEFAULT BOX SIZING ONLY - NO CURSOR HIDING */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            background: radial-gradient(circle at top center, #1a0525, #020003 80%); 
+            color: var(--text); font-family: 'Outfit', sans-serif; 
+            height: 100vh; display: flex; align-items: center; justify-content: center; 
+            margin: 0; overflow: hidden;
+        }
+        
+        .box { 
+            width: 450px; padding: 50px; text-align: center; 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 77, 184, 0.1); 
+            border-radius: 20px; backdrop-filter: blur(10px);
+            position: relative; z-index: 10;
+        }
+        
+        .back { 
+            position: fixed; top: 30px; right: 30px; color: #aaa; 
+            text-decoration: none; text-transform: uppercase; font-weight: 700; 
+            z-index: 100; transition: 0.3s; 
+        }
+        .back:hover { color: var(--primary); }
+        
+        h1 { font-family: 'Clash Display', sans-serif; font-size: 3rem; margin-bottom: 30px; color: var(--primary); text-shadow: 0 0 30px rgba(255,77,184,0.4); }
+        
+        .social { 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 15px; border: 1px solid #333; color: #aaa; 
+            text-decoration: none; margin-bottom: 10px; transition: 0.3s; 
+            font-weight: 600; text-transform: uppercase; font-size: 0.8rem; 
+            letter-spacing: 1px; border-radius: 10px; cursor: pointer;
+        }
+        .social:hover { border-color: var(--primary); color: var(--primary); background: rgba(255, 77, 184, 0.05); }
+        
+        .divider { margin: 25px 0; color: #444; font-size: 0.7rem; letter-spacing: 2px; }
+        
+        input { 
+            width: 100%; background: transparent; border: none; border-bottom: 2px solid #333; 
+            padding: 15px 0; font-size: 1.1rem; color: white; margin-bottom: 20px; 
+            outline: none; transition: 0.3s; font-family: 'Outfit', sans-serif;
+        }
+        input:focus { border-color: var(--primary); padding-left: 10px; }
+        input::placeholder { color: #555; text-transform: uppercase; font-size: 0.9rem; }
+        
+        button { 
+            width: 100%; padding: 20px; background: var(--primary); color: black; 
+            font-weight: 800; border: none; text-transform: uppercase; margin-top: 10px; 
+            transition: 0.3s; border-radius: 50px; letter-spacing: 1px; cursor: pointer;
+        }
+        button:hover { box-shadow: 0 0 30px var(--primary); transform: translateY(-3px); background: white; }
+        
+        .link { display: block; margin-top: 25px; color: #666; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .link:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <a href="/" class="back">Close</a>
+    
+    <div class="box">
+        <h1>Access.</h1>
+        
+        <a href="/login/google" class="social"><i class="fab fa-google"></i> Google Access</a>
+        <a href="/login/github" class="social"><i class="fab fa-github"></i> GitHub Access</a>
+        
+        <div class="divider">OR CREDENTIALS</div>
+        
+        <form>
+            <input type="email" placeholder="ID (Email)" required>
+            <input type="password" placeholder="Passcode" required>
+            <button>Authenticate</button>
+        </form>
+        
+        <a href="/register" class="link">New Agent? Register Here</a>
+    </div>
+
+    <script>
+        gsap.from(".box", {opacity:0, y:30, duration:1, ease:"power4.out"});
+    </script>
+</body>
+</html>

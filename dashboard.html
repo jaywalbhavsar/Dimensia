@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Dimensia</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root { --bg: #030005; --primary: #ff4db8; --text: #fff; }
+        
+        /* STANDARD MOUSE */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            background: radial-gradient(circle at top center, #1a0525, #020003 80%); 
+            color: var(--text); font-family: 'Outfit', sans-serif; 
+            height: 100vh; display: flex; align-items: center; justify-content: center; 
+            text-align: center; margin: 0; 
+        }
+        
+        .dash-ui { 
+            text-align: center; padding: 50px; 
+            border: 1px solid rgba(255, 77, 184, 0.2); border-radius: 20px; 
+            background: rgba(0,0,0,0.5); width: 500px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .profile { 
+            width: 150px; height: 150px; border-radius: 50%; 
+            border: 3px solid var(--primary); object-fit: cover; 
+            margin: 0 auto 30px; padding: 5px; 
+            box-shadow: 0 0 30px rgba(255,77,184,0.3); 
+        }
+        
+        h1 { font-family: 'Clash Display', sans-serif; font-size: 3rem; margin-bottom: 10px; }
+        
+        .status { 
+            color: var(--primary); letter-spacing: 2px; text-transform: uppercase; 
+            font-weight: 700; margin-bottom: 40px; font-size: 0.9rem; 
+        }
+        
+        .btn { 
+            padding: 15px 40px; border: 1px solid rgba(255,255,255,0.2); 
+            color: white; text-decoration: none; margin: 0 10px; 
+            transition: 0.3s; font-weight: 600; text-transform: uppercase; 
+            border-radius: 50px; display: inline-block; cursor: pointer;
+        }
+        .btn:hover { border-color: var(--primary); color: var(--primary); background: rgba(255, 77, 184, 0.1); }
+        .logout:hover { border-color: red; color: red; background: rgba(255,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <div class="dash-ui">
+        {% if user.picture %}
+            <img src="{{ user.picture }}" class="profile">
+        {% elif user.avatar_url %}
+            <img src="{{ user.avatar_url }}" class="profile">
+        {% else %}
+            <div class="profile" style="background:#111; display:flex; align-items:center; justify-content:center; font-size:4rem;">👤</div>
+        {% endif %}
+        
+        <h1>Welcome, {{ user.name }}</h1>
+        <div class="status">● System Operative</div>
+        
+        <div class="btn-group">
+            <a href="/" class="btn">Return to Base</a>
+            <a href="/logout" class="btn logout">Disconnect</a>
+        </div>
+    </div>
+    
+    <script>
+        gsap.from(".dash-ui", {opacity:0, scale:0.95, duration:1, ease:"power4.out"});
+    </script>
+</body>
+</html>
