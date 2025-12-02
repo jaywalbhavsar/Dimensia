@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="4vPLO6E5H_sZwE2B74A0HwxvZTw2ZMyGyP91RQ4fyVY" />
+    <meta name="google-site-verification" content="google034e77485483fe36.html" />
     <title>DIMENSIA | The Apex</title>
     
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet">
@@ -62,10 +62,8 @@
 
         /* --- 3. CINEMATIC LOADER --- */
         .loader-screen {
-            /* TURN LOADER OFF SO IT CAN'T COVER PAGE */
-            display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: #000; z-index: 100000; justify-content: center; align-items: center;
+            background: #000; z-index: 100000; display: flex; justify-content: center; align-items: center;
         }
         .loader-content { overflow: hidden; }
         .loader-word {
@@ -81,7 +79,7 @@
         }
         
         /* LOGO STYLING */
-        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo { display: flex; align-items: center; gap: 15px; } /* Added Gap */
         .logo img { height: 45px; }
         
         /* THE NEW COMPANY NAME TEXT */
@@ -92,7 +90,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             color: white;
-            text-shadow: 0 0 20px rgba(255, 77, 184, 0.5);
+            text-shadow: 0 0 20px rgba(255, 77, 184, 0.5); /* Slight Glow */
         }
 
         .nav-links a {
@@ -303,4 +301,5 @@
         });
     </script>
 </body>
+
 </html>
