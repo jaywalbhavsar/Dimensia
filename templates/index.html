@@ -16,8 +16,8 @@
     <style>
         :root {
             --bg: #030005;
-            --primary: #ff4db8;
-            --secondary: #7a26c4;
+            --primary: #ff4db8; /* Neon Pink */
+            --secondary: #7a26c4; /* Deep Purple */
             --text: #ffffff;
             --glass: rgba(255, 255, 255, 0.03);
         }
@@ -31,6 +31,7 @@
             overflow-x: hidden;
         }
 
+        /* --- 1. THE ATMOSPHERE (Animated Background) --- */
         .fog-layer {
             position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
             background: radial-gradient(circle at center, #1a0525, #020003 60%);
@@ -47,6 +48,7 @@
             z-index: 1; pointer-events: none; mix-blend-mode: screen;
         }
 
+        /* --- 2. CUSTOM CURSOR --- */
         .cursor {
             position: fixed; width: 10px; height: 10px; background: var(--primary);
             border-radius: 50%; pointer-events: none; z-index: 10000;
@@ -58,31 +60,31 @@
             transition: all 0.15s ease-out; transform: translate(-50%, -50%);
         }
 
+        /* --- 3. CINEMATIC LOADER --- */
         .loader-screen {
+            /* TURN LOADER OFF SO IT CAN'T COVER PAGE */
+            display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: #000; z-index: 100000; display: flex; justify-content: center; align-items: center;
-            animation: forceHide 2s forwards; /* FIX: force hide */
+            background: #000; z-index: 100000; justify-content: center; align-items: center;
         }
-
-        @keyframes forceHide {
-            to { height: 0; }
-        }
-
         .loader-content { overflow: hidden; }
         .loader-word {
             font-family: 'Clash Display', sans-serif; font-size: 4rem; font-weight: 700;
             color: var(--primary); transform: translateY(100%);
         }
 
+        /* --- 4. NAVIGATION (UPDATED WITH NAME) --- */
         nav {
             position: fixed; top: 0; width: 100%; padding: 30px 5%;
             display: flex; justify-content: space-between; align-items: center; z-index: 100;
             mix-blend-mode: difference;
         }
         
+        /* LOGO STYLING */
         .logo { display: flex; align-items: center; gap: 15px; }
         .logo img { height: 45px; }
         
+        /* THE NEW COMPANY NAME TEXT */
         .logo-text {
             font-family: 'Clash Display', sans-serif;
             font-weight: 700;
@@ -99,11 +101,13 @@
         }
         .nav-links a:hover { color: var(--primary); }
 
+        /* --- 5. HERO SECTION --- */
         .hero {
             height: 100vh; display: flex; flex-direction: column; justify-content: center;
             align-items: center; text-align: center; position: relative; padding: 0 5%;
         }
         
+        /* The Title that Breaks the Screen */
         .hero-title {
             font-family: 'Clash Display', sans-serif; font-size: 14vw; line-height: 0.8;
             font-weight: 800; text-transform: uppercase; color: transparent;
@@ -119,6 +123,7 @@
             line-height: 1.5; opacity: 0;
         }
 
+        /* The Magnetic Button */
         .btn-wrapper { margin-top: 60px; opacity: 0; }
         .btn-main {
             padding: 25px 80px; background: var(--primary); color: black; border-radius: 100px;
@@ -128,6 +133,7 @@
         }
         .btn-main:hover { background: white; box-shadow: 0 0 60px var(--primary); transform: scale(1.05); }
 
+        /* --- 6. PARALLAX STRIP --- */
         .marquee {
             padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.1);
             border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(20, 5, 25, 0.5);
@@ -137,6 +143,7 @@
         .track span { margin-right: 80px; transition: 0.3s; }
         .track span:hover { color: var(--primary); -webkit-text-stroke: 1px white; }
 
+        /* --- 7. CAPABILITIES --- */
         .services { padding: 150px 10%; }
         .sec-head { font-family: 'Clash Display', sans-serif; font-size: 1rem; color: var(--primary); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 3px; }
         
@@ -156,4 +163,144 @@
 </head>
 <body>
 
-<!-- unchanged content continues below -->
+    <div class="loader-screen">
+        <div class="loader-content">
+            <div class="loader-word">DIMENSIA</div>
+        </div>
+    </div>
+
+    <div class="fog-layer"></div>
+    <div class="noise"></div>
+    <div class="spotlight"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+
+    <nav>
+        <div class="logo">
+            <img src="/static/logo.png" alt="D">
+            <span class="logo-text">DIMENSIA</span>
+        </div>
+        <div class="nav-links">
+            <a href="/services" class="hover-magnet">Expertise</a>
+            <a href="/team" class="hover-magnet">Team</a>
+            <a href="/contact" class="hover-magnet">Contact</a>
+            {% if user %}
+                <a href="/dashboard" style="color:var(--primary)">Dashboard</a>
+            {% else %}
+                <a href="/login" class="hover-magnet">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-title">WE BUILD</div>
+        <div class="hero-title solid-pink">DIGITAL</div>
+        <div class="hero-title">LEGACIES</div>
+        
+        <p class="hero-sub">The singularity is here. We architect high-performance digital realities for the world's most ambitious brands.</p>
+        
+        <div class="btn-wrapper">
+            <a href="/contact" class="btn-main hover-magnet">Initiate Project</a>
+        </div>
+    </section>
+
+    <div class="marquee">
+        <div class="track">
+            <span>Strategy</span><span>Design</span><span>Development</span><span>AI Systems</span>
+            <span>Strategy</span><span>Design</span><span>Development</span><span>AI Systems</span>
+        </div>
+    </div>
+
+    <section class="services">
+        <div class="sec-head">// Core Capabilities</div>
+        <div class="srv-item">
+            <span class="srv-name">Branding</span>
+            <span class="srv-desc">Visual identity systems that dominate.</span>
+        </div>
+        <div class="srv-item">
+            <span class="srv-name">Hyper-Web</span>
+            <span class="srv-desc">Immersive 3D & WebGL experiences.</span>
+        </div>
+        <div class="srv-item">
+            <span class="srv-name">Neural Nets</span>
+            <span class="srv-desc">Custom AI automation infrastructure.</span>
+        </div>
+        <div class="srv-item">
+            <span class="srv-name">App Ecology</span>
+            <span class="srv-desc">Software development.</span>
+        </div>
+    </section>
+
+    <script>
+        // --- 1. SMOOTH SCROLL ---
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true
+        });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- 2. LOADER SEQUENCE ---
+        const tl = gsap.timeline();
+        tl.to(".loader-word", { y: 0, duration: 1.2, ease: "power4.out" })
+          .to(".loader-word", { y: -150, duration: 1, ease: "power4.in", delay: 0.5 })
+          .to(".loader-screen", { height: 0, duration: 1, ease: "power4.inOut" })
+          // Hero Reveal
+          .from(".hero-title", { y: 100, opacity: 0, duration: 1.5, stagger: 0.1, ease: "power4.out" }, "-=0.5")
+          .to(".hero-sub", { opacity: 1, duration: 1 }, "-=0.8")
+          .to(".btn-wrapper", { opacity: 1, y: 0, duration: 1 }, "-=0.8");
+
+        // --- 3. PARALLAX ---
+        gsap.to(".fog-layer", {
+            y: "20%",
+            scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 1 }
+        });
+
+        gsap.to(".hero-title", {
+            y: 150,
+            scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }
+        });
+
+        // --- 4. MARQUEE ---
+        gsap.to(".track", {
+            x: "-20%",
+            scrollTrigger: { trigger: ".marquee", start: "top bottom", end: "bottom top", scrub: 1 }
+        });
+
+        // --- 5. SERVICES REVEAL ---
+        gsap.utils.toArray(".srv-item").forEach(item => {
+            gsap.to(item, {
+                y: 0, opacity: 1, duration: 1, ease: "power3.out",
+                scrollTrigger: { trigger: item, start: "top 85%" }
+            });
+        });
+
+        // --- 6. CURSOR LOGIC ---
+        const spotlight = document.querySelector('.spotlight');
+        const cursor = document.querySelector('.cursor');
+        const ring = document.querySelector('.cursor-ring');
+        
+        document.addEventListener('mousemove', e => {
+            spotlight.style.setProperty('--x', `${e.clientX}px`);
+            spotlight.style.setProperty('--y', `${e.clientY}px`);
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
+            gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.15 });
+        });
+
+        // Hover Magnetism
+        document.querySelectorAll('.hover-magnet').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { scale: 0 });
+                gsap.to(ring, { scale: 1.5, borderColor: 'var(--primary)' });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { scale: 1 });
+                gsap.to(ring, { scale: 1, borderColor: 'rgba(255,255,255,0.2)' });
+            });
+        });
+    </script>
+</body>
+</html>
