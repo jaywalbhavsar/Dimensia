@@ -5,6 +5,9 @@
     <title>Team | Dimensia</title>
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="/static/logo.png">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <style>
@@ -20,10 +23,41 @@
         .logo img { height: 40px; }
         .back { text-decoration: none; color: #aaa; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        .container { padding: 100px 5%; text-align: center; }
-        h1 { font-family: 'Clash Display', sans-serif; font-size: 7vw; margin-bottom: 80px; text-transform: uppercase; color: white; text-shadow: 0 0 30px rgba(255, 77, 184, 0.3); }
+        .container { padding: 80px 5%; text-align: center; }
+        h1 { font-family: 'Clash Display', sans-serif; font-size: 7vw; margin-bottom: 30px; text-transform: uppercase; color: white; text-shadow: 0 0 30px rgba(255, 77, 184, 0.3); }
 
+        /* --- BUTTON STYLES --- */
+        .btn-wrapper { display: flex; justify-content: center; margin-bottom: 80px; }
+        
+        /* Main Company Button */
+        .company-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 15px 35px; border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px; text-decoration: none; color: white;
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;
+            font-weight: 600; transition: 0.4s; background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(5px);
+        }
+        .company-btn:hover { border-color: #0077b5; background: #0077b5; box-shadow: 0 0 30px rgba(0, 119, 181, 0.5); transform: translateY(-3px); }
+        .company-btn svg { width: 20px; height: 20px; fill: white; }
+
+        /* Individual Profile Buttons */
+        .profile-btn {
+            margin-top: auto; /* Pushes to bottom */
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px; text-decoration: none; color: #ccc;
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;
+            font-weight: 600; transition: 0.3s; width: fit-content;
+        }
+        .profile-btn svg { width: 14px; height: 14px; fill: #ccc; transition: 0.3s; }
+        
+        .profile-btn:hover { border-color: #0077b5; background: rgba(0, 119, 181, 0.1); color: #fff; box-shadow: 0 0 15px rgba(0, 119, 181, 0.2); }
+        .profile-btn:hover svg { fill: #0077b5; }
+
+        /* --- GRID --- */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
+        
         .card { 
             background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; 
             padding: 0; transition: 0.5s; display: flex; flex-direction: column; min-height: 600px; overflow: hidden; opacity: 0; transform: translateY(50px);
@@ -34,14 +68,10 @@
         .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; filter: grayscale(100%); }
         .card:hover img { filter: grayscale(0%); transform: scale(1.1); }
 
-        /* Shapes */
-        .circle { width: 250px; height: 250px; border-radius: 50%; margin: 75px auto; border: 2px solid var(--primary); }
-        .rect { width: 100%; height: 100%; }
-
-        .info { padding: 40px; text-align: left; flex-grow: 1; }
+        .info { padding: 40px; text-align: left; flex-grow: 1; display: flex; flex-direction: column; }
         .role { color: var(--primary); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 10px; }
         .name { font-family: 'Clash Display', sans-serif; font-size: 2.5rem; margin-bottom: 10px; line-height: 1; }
-        .bio { color: #888; font-size: 0.95rem; line-height: 1.6; }
+        .bio { color: #888; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; }
 
         @media(max-width: 1024px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 15vw; } }
     </style>
@@ -55,19 +85,58 @@
     
     <div class="container">
         <h1>Architects.</h1>
+        
+        <div class="btn-wrapper">
+            <a href="https://www.linkedin.com/company/dimensia-freelancing/?viewAsMember=true" target="_blank" class="company-btn hover-magnet">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                Follow Dimensia
+            </a>
+        </div>
+
         <div class="grid">
+            
             <div class="card hover-magnet">
                 <div class="img-box rect"><img src="/static/1.png" onerror="this.src='/static/1.jpg'" alt="Jaywal"></div>
-                <div class="info"><span class="role">Founder & CEO</span><div class="name">Jaywal Bhavsar</div><p class="bio">Visionary architect redefining digital boundaries.</p></div>
+                <div class="info">
+                    <span class="role">Founder & CEO</span>
+                    <div class="name">Jaywal Bhavsar</div>
+                    <p class="bio">Visionary architect redefining digital boundaries.</p>
+                    
+                    <a href="https://www.linkedin.com/in/jaywal-bhavsar-106386360/" target="_blank" class="profile-btn hover-magnet">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        Connect
+                    </a>
+                </div>
             </div>
+
             <div class="card hover-magnet">
                 <div class="img-box rect"><img src="/static/2.png" onerror="this.src='/static/2.jpg'" alt="Parth"></div>
-                <div class="info"><span class="role">Director</span><div class="name">Parth Gohil</div><p class="bio">Building the systems that power the next generation.</p></div>
+                <div class="info">
+                    <span class="role">Director</span>
+                    <div class="name">Parth Gohil</div>
+                    <p class="bio">Building the systems that power the next generation.</p>
+
+                    <a href="https://www.linkedin.com/in/parth-gohil-9b73a0301/" target="_blank" class="profile-btn hover-magnet">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        Connect
+                    </a>
+                </div>
             </div>
+
             <div class="card hover-magnet">
                 <div class="img-box rect"><img src="/static/3.png" onerror="this.src='/static/image_27.png'" alt="Rudra"></div>
-                <div class="info"><span class="role">CMO</span><div class="name">Rudra Undhad</div><p class="bio">Crafting interfaces that defy geometry.</p></div>
+                <div class="info">
+                    <span class="role">CMO</span>
+                    <div class="name">Rudra Undhad</div>
+                    <p class="bio">Crafting interfaces that defy geometry.</p>
+
+                    <a href="https://www.linkedin.com/in/rudra-undhad-4188a5301/" target="_blank" class="profile-btn hover-magnet">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        Connect
+                    </a>
+                </div>
             </div>
+
         </div>
     </div>
     <script>
@@ -77,6 +146,7 @@
         document.querySelectorAll('.hover-magnet').forEach(el=>{el.addEventListener('mouseenter',()=>gsap.to(r,{scale:2,borderColor:'#ff4db8'}));el.addEventListener('mouseleave',()=>gsap.to(r,{scale:1,borderColor:'rgba(255,255,255,0.2)'}));});
         
         gsap.from("h1", {opacity:0, y:50, duration:1.5, ease:"power4.out"});
+        gsap.from(".company-btn", {opacity:0, y:30, duration:1, delay:0.3, ease:"power3.out"});
         gsap.to(".card", {opacity:1, y:0, duration:1, stagger:0.2, ease:"power3.out", delay:0.5});
     </script>
 </body>
